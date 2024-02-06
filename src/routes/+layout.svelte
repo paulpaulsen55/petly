@@ -1,7 +1,7 @@
 <script>
+    import Navigation from "$lib/components/Navigation.svelte";
     import "../app.css";
-
-    export const ssr = false;
 </script>
 
+<!-- <Navigation /> -->
 <slot />
