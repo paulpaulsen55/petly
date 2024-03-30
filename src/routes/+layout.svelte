@@ -3,5 +3,7 @@
     import "../app.css";
 </script>
 
+<div class="bg-p-black text-p-white px-5">
 <Navigation />
-<slot />
+    <slot />
+</div>

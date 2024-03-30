@@ -1,28 +1,41 @@
-<script>
-    import { Menubar } from "bits-ui";
-    import { ChevronDown } from 'lucide-svelte';
+<script lang="ts">
+    import { Menu } from 'lucide-svelte';
 
+    function toggleMenu() {
+        document.getElementById('nav')?.classList.toggle('hidden');
+    }
 </script>
 
-<div class="sticky top-0 left-0 w-full flex justify-center z-10 p-2 backdrop-blur">
-    <Menubar.Root class="w-2/3 bg-slate-200 flex justify-center gap-4 p-2 text-lg rounded-lg">
-        <button class="rounded-lg px-3 bg-slate-200 flex justify-center items-center font-medium">
-            <a href="/" class="">Home</a>
-        </button>
-        <Menubar.Menu>
-            <Menubar.Trigger 
-                class="inline-flex h-10 items-center justify-center rounded-lg px-3 font-medium 
-                    data-[highlighted]:bg-slate-300 data-[state=open]:bg-slate-200">
-                <p>Services</p>
-                <ChevronDown size={16} />
-            </Menubar.Trigger>
-            <Menubar.Content class="z-20 w-full max-w-[220px] rounded-xl border border-muted bg-background px-1 py-1.5 shadow-popover !ring-0 !ring-transparent ">
-                <Menubar.Item class="p-1.5 text-sm font-medium data-[highlighted]:bg-slate-300">
-                    <a href="/game" class="w-full">Services</a>
-                </Menubar.Item>
-                <Menubar.Item class="item">Products</Menubar.Item>
-                <Menubar.Item class="item">Customers</Menubar.Item>
-            </Menubar.Content>
-        </Menubar.Menu>
-    </Menubar.Root>
-</div>
+<header class="flex justify-between items-center p-5 w-full transition-all">
+    <img src="/logo.svg" alt="logo" class="size-8 sm:hidden">
+    <button type="button" class="sm:hidden" on:click={() => toggleMenu()}>
+        <Menu size="24" />
+    </button>
+    <nav class="justify-between hidden sm:flex w-full absolute sm:relative bg-black top-16 sm:top-0 left-0 p-5 sm:p-0" id="nav">
+        <div class="items-center gap-2 sm:gap-10 flex flex-col sm:flex-row mb-10 sm:mb-0">
+            <img src="/logo.svg" alt="logo" class="size-8 hidden sm:block">
+            <a href="/" class="relative group">
+                <span>Home</span>
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"></span>
+            </a>
+            <a href="/info" class="relative group">
+                <span>Info</span>
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"></span>
+            </a>
+            <a href="/adopt" class="relative group">
+                <span>Adopt</span>
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"></span>
+            </a>
+        </div>
+        <div class="items-center gap-2 sm:gap-10 flex flex-col sm:flex-row">
+            <a href="/account" class="relative group">
+                <span>Login</span>
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"></span>
+            </a>
+            <a href="/account" class="group relative overflow-hidden bg-p-blue p-3 rounded-lg text-p-black">
+                <span>Register</span>
+                <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-60 group-hover:animate-shine" />
+            </a>
+        </div>
+    </nav>
+</header>
