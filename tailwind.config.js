@@ -16,10 +16,21 @@ export default {
         animation: {
             shine: "shine 1s",
         },
-            keyframes: {
-                shine: {
-                    "100%": { left: "125%" },
-                },
+        keyframes: {
+            shine: {
+                "100%": { left: "125%" },
+            },
+        },
+        dropShadow: {
+            gw: [
+                "0 0px 20px rgba(255,255, 255, 0.35)",
+                "0 0px 65px rgba(255, 255,255, 0.2)"
+            ],
+            gb: [
+                "0 0px 20px rgba(10, 225, 255, 0.35)",
+                "0 0px 65px rgba(10, 225, 255, 0.2)"
+            ],
+
         },
     },
     plugins: [],
