@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    font-family: 'Baloo 2', sans-serif;
+@layer base {
+    @font-face {
+        font-family: 'MonumentExtended-Regular';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/font/MonumentExtended-Regular.otf') format('opentype');
+    }
+    html {
+        font-family: "MonumentExtended-Regular", system-ui, sans-serif;
+    }
 }

@@ -3,5 +3,5 @@
     import "../app.css";
 </script>
 
-<!-- <Navigation /> -->
+<Navigation />
 <slot />
