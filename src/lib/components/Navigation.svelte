@@ -12,7 +12,7 @@
         <Menu size="24" />
     </button>
     <nav
-        class="justify-between hidden sm:flex w-full absolute sm:relative bg-black top-16 sm:top-0 left-0 p-5 sm:p-0"
+        class="justify-between hidden sm:flex w-full absolute sm:relative top-16 sm:top-0 left-0 p-5 sm:p-0"
         id="nav"
     >
         <div
