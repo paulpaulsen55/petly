@@ -1,8 +1,15 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
+    import { user } from "$lib/store";
     import { Menu } from "lucide-svelte";
 
     function toggleMenu() {
         document.getElementById("nav")?.classList.toggle("hidden");
+    }
+
+    function logout() {
+        user.logout();
+        goto("/");
     }
 </script>
 
@@ -39,21 +46,30 @@
             </a>
         </div>
         <div class="items-center gap-2 sm:gap-10 flex flex-col sm:flex-row">
-            <a href="/account" class="relative group">
-                <span>Login</span>
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"
-                ></span>
-            </a>
-            <a
-                href="/account"
-                class="group relative overflow-hidden bg-p-blue p-3 rounded-lg text-p-black"
-            >
-                <span>Register</span>
-                <div
-                    class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-60 group-hover:animate-shine"
-                />
-            </a>
+            {#if $user !== null}
+                <button class="relative group" on:click={() => logout()}>
+                    Logout
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"
+                    ></span>
+                </button>
+            {:else}
+                <a href="/account" class="relative group">
+                    <span>Login</span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-p-blue transition-all group-hover:w-full"
+                    ></span>
+                </a>
+                <a
+                    href="/account"
+                    class="group relative overflow-hidden bg-p-blue p-3 rounded-lg text-p-black"
+                >
+                    <span>Register</span>
+                    <div
+                        class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-60 group-hover:animate-shine"
+                    />
+                </a>
+            {/if}
         </div>
     </nav>
 </header>

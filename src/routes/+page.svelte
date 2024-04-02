@@ -17,7 +17,7 @@
             </p>
             <a
                 href="/adopt"
-                class="border-p-blue border-2 rounded-lg p-3 w-fit hover:drop-shadow-glow transition"
+                class="border-p-blue border-2 rounded-lg p-3 w-fit hover:drop-shadow-glow transition z-10"
                 >Adoptieren</a
             >
         </aside>
