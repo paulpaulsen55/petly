@@ -12,3 +12,5 @@ function userFunc() {
     };
 }
 export const user = userFunc();
+
+export const money = writable<number>(0);

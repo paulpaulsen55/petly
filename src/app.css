@@ -15,3 +15,9 @@
         font-family: "MonumentExtended-Regular", system-ui, sans-serif;
     }
 }
+
+@layer utilities {
+    .pixel {
+        image-rendering: pixelated;
+    }
+}

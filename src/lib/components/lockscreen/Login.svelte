@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { user } from "$lib/store";
+    import { money, user } from "$lib/store";
     import { Ban } from "lucide-svelte";
 
     let name = "";
@@ -18,7 +18,10 @@
             .then((response) => {
                 if (response.ok) {
                     user.login(name);
-                    goto("/account");
+                    response.json().then((data) => {
+                        money.set(data.money);
+                        goto("/account");
+                    });
                 } else {
                     errorMsg = "Falscher Name oder Passwort";
                 }
