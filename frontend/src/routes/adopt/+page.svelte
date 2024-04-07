@@ -36,7 +36,7 @@
     }
 </script>
 
-<main>
+<main class="my-20">
     <h2 class="text-4xl my-10">Wähle ein Haustier zum adoptieren aus:</h2>
     {#await promise}
         <div class="grid place-content-center h-[90vh]">

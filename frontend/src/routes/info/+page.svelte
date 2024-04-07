@@ -2,7 +2,7 @@
     import { ArrowUpRight } from "lucide-svelte";
 </script>
 
-<main class="space-y-80 mt-20">
+<main class="space-y-80 my-20">
     <section class="space-y-20">
         <h2 class="text-p-blue text-5xl">Tritt jetzt bei</h2>
         <p class="text-p-gray">

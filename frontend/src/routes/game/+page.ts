@@ -21,9 +21,6 @@ export async function load({ fetch }) {
         redirect(302, '/game');
     }
 
-    console.log(localPet);
-
-
     unscribe();
 
     return {

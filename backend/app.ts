@@ -31,7 +31,7 @@ db.run('CREATE TABLE pets (name TEXT, owner TEXT DEFAULT "", color INTEGER, leve
         db.run(`INSERT INTO pets (name, color, price) VALUES (?, ?, ?)`, ['Picatzo', 12, 160]);
         db.run(`INSERT INTO pets (name, color, price) VALUES (?, ?, ?)`, ['Fuzzy', 13, 180]);
         db.run(`INSERT INTO pets (name, color, price) VALUES (?, ?, ?)`, ['Outclaw', 14, 200]);
-        console.log('Pets table created');
+        console.log('Database seeded');
     }
 });
 
@@ -128,6 +128,38 @@ app.post('/adopt', (req, res) => {
         if (!err && row) {
             const price = (row as any).price;
             db.run(`UPDATE users SET money = money - ? WHERE name = ? AND money >= ?`, [price, owner, price]);
+        }
+    });
+});
+
+app.post('/updateLevel', (req, res) => {
+    const { petName, level, owner } = req.body;
+    if (!petName || !level || !owner) {
+        res.status(400).json({ error: 'Missing pet or level or owner' });
+        return;
+    }
+
+    db.get(`SELECT * FROM pets WHERE name = ? AND owner = ?`, [petName, owner], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ message: 'Pet not found or not owned by user' });
+        } else {
+            db.run(`UPDATE pets SET level = ? WHERE name = ?`, [level, petName], function (err) {
+                if (err) {
+                    res.status(500).json({ error: err.message });
+                } else if (this.changes === 0) {
+                    res.status(404).json({ message: 'Pet not found' });
+                } else {
+                    db.run(`UPDATE users SET money = money + 10 WHERE name = ?`, [owner], function (err) {
+                        if (err) {
+                            res.status(500).json({ error: err.message });
+                        } else {
+                            res.status(200).json({ message: 'Money added successfully' });
+                        }
+                    });
+                }
+            });
         }
     });
 });

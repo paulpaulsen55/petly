@@ -4,15 +4,9 @@
     import Register from "$lib/components/lockscreen/Register.svelte";
     import { user } from "$lib/store";
     import { Tabs } from "bits-ui";
-    import { Check, Loader2, X } from "lucide-svelte";
 
     let name = "";
     let password = "";
-    let success = false;
-    let validName = 0;
-    let safeTimeoutForName = 0;
-    let rule =
-        "Regel: Nur Buchstaben und Unterstriche sind erlaubt. Mindestens 3 Zeichen.";
 
     function handleLogin() {
         fetch("http://localhost:3000/login", {
