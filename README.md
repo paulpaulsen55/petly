@@ -1,38 +1,35 @@
-# create-svelte
+![Banner Image](/banner.png)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## What is petly?
 
-## Creating a project
+The project was developed as part of the 'Web Programming' module at the Berlin School of Economics and Law (HWR Berlin). 
+Petly is a great web application that allows you to easily manage and care for your pets. Once you have registered, you can adopt new animals on the Adopt page. All your animals are stored in a database and you can view them at any time on your profile page. It is important that you have a balanced currency in order to feed and care for your animals in the best possible way. You can purchase new animals at any time to expand your collection.
 
-If you're seeing this, you've probably already done this step. Congrats!
 
+## Prerequisites
+[Node.js](https://nodejs.org/en/download) (>= 18.0.0)
+
+
+## Docker
+For a quick start, you can use Docker. To do this, simply run the following commands in the project directory:
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+docker-compose build
+docker-compose up -d
 ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone the repository: `git clone https://github.com/paulpaulsen55/petly.git`
+2. Navigate to the project directory: `cd petly`
+3. Install the frontend and backend dependencies (in their respective directories): `npm install`
+4. Start the backend: `npm start`
+5. Start the frontend: `npm run dev`
+6. Open your browser and navigate to `http://localhost:5137`
 
-```bash
-npm run dev
+The backend is a RESTful API written in Node.js using Express.js. It uses a in-memory SQLite database to store the data and also handles authentication.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+The frontend is a single page application written in SvelteKit. The structure of the application is based on the [SvelteKit template](https://kit.svelte.dev/docs/project-structure). Various routes are located in the `src/routes' directory`. The components are in the `src/lib/components'` directory. Other functionality is in the `src/lib'` directory, such as the store.
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Known Issues
+- The application is not yet fully responsive.
+- Reloading the page will cause the user to be logged out.
