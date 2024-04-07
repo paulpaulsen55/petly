@@ -1,4 +1,4 @@
-import type { Pet } from '$lib/apit.js';
+import type { Pet } from '$lib/api.js';
 import { user } from '$lib/store';
 import { redirect } from '@sveltejs/kit';
 

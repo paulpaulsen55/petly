@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import type { Pet } from "$lib/apit";
+    import type { Pet } from "$lib/api";
     import Card from "$lib/components/Card.svelte";
     import { money, user } from "$lib/store";
     import { Loader2 } from "lucide-svelte";

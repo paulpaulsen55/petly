@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Pet } from "$lib/apit";
+    import type { Pet } from "$lib/api";
     import { createEventDispatcher } from "svelte";
 
     export let pet: Pet;

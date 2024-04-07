@@ -1,4 +1,5 @@
 import { writable, get } from "svelte/store";
+import type { Pet } from "./api";
 
 function userFunc() {
     const store = writable<string | null>(null);
@@ -14,3 +15,5 @@ function userFunc() {
 export const user = userFunc();
 
 export const money = writable<number>(0);
+
+export const pet = writable<Pet | null>(null);

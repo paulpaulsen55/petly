@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { user } from "$lib/store";
+    import { pet, user } from "$lib/store";
     import type { PageData } from "./$types";
     import Card from "$lib/components/Card.svelte";
     import { goto } from "$app/navigation";
@@ -7,9 +7,8 @@
     export let data: PageData;
 
     function game(e: any) {
-        console.log(e.detail.pet);
-        
-        // goto("/game", { state: { pet: e.detail.pet } });
+        pet.set(e.detail.pet);
+        goto("/game");
     }
 </script>
 
@@ -28,6 +27,9 @@
                         on:action={(e) => game(e)}
                     />
                 </li>
+            {:else}
+                <p>Du hast noch keine Haustiere.</p>
+                <a href="/adopt" class="text-p-blue underline">Adoptiere eins!</a>
             {/each}
         </ul>
     </section>
