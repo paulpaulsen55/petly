@@ -28,7 +28,7 @@ docker-compose up -d
 
 The backend is a RESTful API written in Node.js using Express.js. It uses a in-memory SQLite database to store the data and also handles authentication.
 
-The frontend is a single page application written in SvelteKit. The structure of the application is based on the [SvelteKit template](https://kit.svelte.dev/docs/project-structure). Various routes are located in the `src/routes' directory`. The components are in the `src/lib/components'` directory. Other functionality is in the `src/lib'` directory, such as the store.
+The frontend is a single page application written in SvelteKit. The structure of the application is based on the [SvelteKit template](https://kit.svelte.dev/docs/project-structure). Various routes are located in the `src/routes' directory`. The components are in the `src/lib/components` directory. Other functionality is in the `src/lib` directory, such as the store.
 
 ## Known Issues
 - The application is not yet fully responsive.
